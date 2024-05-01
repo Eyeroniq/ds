@@ -1,0 +1,64 @@
+impala-shell
+
+
+
+CREATE DATABASE sample_db;
+
+
+
+USE sample_db;
+
+
+
+-- Creating a table to store employee data
+CREATE TABLE employees (
+    id INT,
+    name STRING,
+    age INT,
+    department STRING
+);
+
+-- Creating a table to store department data
+CREATE TABLE departments (
+    id INT,
+    name STRING
+);
+
+
+
+-- Inserting data into the employees table
+INSERT INTO employees VALUES
+    (1, 'John Doe', 30, 'Engineering'),
+    (2, 'Jane Smith', 28, 'Marketing'),
+    (3, 'Alice Johnson', 35, 'HR');
+
+-- Inserting data into the departments table
+INSERT INTO departments VALUES
+    (1, 'Engineering'),
+    (2, 'Marketing'),
+    (3, 'HR');
+
+
+
+
+
+
+
+-- Querying all employees
+SELECT * FROM employees;
+
+-- Querying employees in the Engineering department
+SELECT * FROM employees WHERE department = 'Engineering';
+
+-- Joining tables to get department names for each employee
+SELECT e.name AS employee_name, d.name AS department_name
+FROM employees e
+JOIN departments d
+ON e.department = d.name;
+
+
+
+
+
+
+quit;
